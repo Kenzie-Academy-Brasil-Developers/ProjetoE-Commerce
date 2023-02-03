@@ -22,7 +22,7 @@
 
 <h2 id="searchItems" style="letter-spacing: 1px;"><strong>Search Bar</strong></h2>
 <!-- <img src="./img/images/searchImage.png" alt="search Image" style="max-height: 1000px; max-width: 800px; border-radius: 8px;"> -->
-![searchImage](https://user-images.githubusercontent.com/98988774/216567740-ca0bd6ed-0698-471b-9af9-b27de0f4339b.png)
+![searchImage](https://user-images.githubusercontent.com/98988774/216568738-5be0519d-4f2b-4b5c-b097-41876de1d47a.png)
 
 <br>
 <p style="font-size: 1.2rem;">
