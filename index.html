@@ -1,60 +1,59 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/style.css">
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="shortcut icon" href="./img/favicon.png" type="image/x-icon">
     <title>E-commerce</title>
-</head>
-<body>
+  </head>
+  <body>
     <header>
-        <div class="container" id="">
-            <h1 class="logo">
-                <span id="purple">Purple</span>
-                Clothes
-            </h1>
-            
-            <nav class="itensNav">
-                <a>Todos</a>
-                <a>Acessórios</a>
-                <a>Calçados</a>
-                <a>Camisetas</a>
-            </nav>
-        </div>
-        
-        <div>
-            
-        </div>
-    </header>
-    
-    <main>
-        <div class="container">
-            <div class="vitrine">
-                <ul class="listaRoupas" id="listaPrincipal">
+      <div class="container">
+        <h1 class="logo">
+          <span id="purple">Purple</span>
+          Clothes
+        </h1>
 
-                </ul>
-            </div>
-            
-            <div class="secaoDireita">
-                <div class="carrinhoDeCompras">
-                    <input type="text" placeholder="O que está procurando...">
-                    <button type="submit" id="searchButton">Pesquisar</button>
-                </div>
-                
-                <div class="carrinho">
-                    <p id="tituloCarrinho">Carrinho de Compras</p>
-                    <ul class="listaSelecionados" id="listaCompras">
-                        <div class="comprasCarrinho">
-                            <h3 id="carrinhoVazio">Carrinho Vazio</h3>
-                            <small id="small">adicione itens</small>
-                        </div>
-                    </ul>
-                </div>
-            </div>
+        <nav class="itensNav">
+          <button data-btn="">Todos</button>
+          <button data-btn="Acessórios">Acessórios</button>
+          <button data-btn="Jaquetas">Jaquetas</button>
+          <button data-btn="Camisetas">Camisetas</button>
+        </nav>
+      </div>
+
+      <div></div>
+    </header>
+
+    <main>
+      <div class="container">
+        <div class="vitrine">
+          <ul class="listaRoupas" id="listaPrincipal">
+          </ul>
         </div>
+
+        <div class="secaoDireita">
+          <div class="carrinhoDeCompras">
+            <input type="text" placeholder="O que está procurando..." id="input" />
+            <button type="search" id="searchButton">Pesquisar</button>
+          </div>
+
+          <div class="carrinho">
+            <p id="tituloCarrinho">Carrinho de Compras</p>
+            <ul class="listaSelecionados" id="listaCompras">
+              <div class="comprasCarrinho">
+                <h3 id="carrinhoVazio">Carrinho Vazio</h3>
+                <small id="small">adicione itens</small>
+              </div>
+            </ul>
+          </div>
+        </div>
+      </div>
     </main>
     <script src="./js/database.js"></script>
     <script src="./js/index.js"></script>
-</body>
+  </body>
 </html>

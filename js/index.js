@@ -1,52 +1,83 @@
+// Geração Dos Produtos
 
+function renderCards () {
+    
+    data.forEach(element => {
+        createCard(element)
+    })
+    
+}
 const listUl = document.querySelector("#listaPrincipal")
 
-// Geração Dos Produtos
-for (let i = 0; i < data.length; i++) {
-    
-    let dataId = data[i].id;
-    let dataImg = data[i].img;
-    let tipo = data[i].tag[0];
-    let nomeItem = data[i].nameItem;
-    let description = data[i].description;
-    let preco = data[i].value;
-    
-    let listItem = document.createElement('li');
-    listItem.classList.add('card')
-    listItem.innerHTML = ""
-    listItem.id = dataId
-    
-    let img = document.createElement('img');
-    img.src = dataImg
-    
-    let pTipo = document.createElement('p');
-    pTipo.classList.add('type');
-    pTipo.innerText = tipo
-    
-    let h3 = document.createElement('h3');
-    h3.innerText = nomeItem
-    
-    let pDescription = document.createElement('p');
-    pDescription.classList.add('descricao')
-    pDescription.innerText = description;
-    
-    let pPreco = document.createElement('p')
-    pPreco.classList.add('preco')
-    pPreco.innerText = `R$${preco},00`
-    
-    let buttonAdd = document.createElement('button');
-    buttonAdd.classList.add('botao')
-    buttonAdd.setAttribute('id', `b_${dataId}`)
-    buttonAdd.innerText = 'Adicionar ao carrinho';
-    
-    listItem.appendChild(img);
-    listItem.appendChild(pTipo);
-    listItem.appendChild(h3);
-    listItem.appendChild(pDescription);
-    listItem.appendChild(pPreco);
-    listItem.appendChild(buttonAdd);
-    listUl.appendChild(listItem)
+function createCard ({id, img, tag, nameItem, description, value}) {
+    const listUl = document.querySelector("#listaPrincipal")
+
+    listUl.insertAdjacentHTML("afterbegin", `
+    <li class="card" id="${id}">
+        <img src="${img}" alt="${nameItem}">
+        <p class="type">${tag[0]}</p>
+        <h3>${nameItem}</h3>
+        <p class="descricao">${description}</p>
+        <p class="preco">R$${value},00</p>
+        <button class="botao" id="b_${id}">Adicionar ao carrinho</button>
+    </li>
+    `)
+
 }
+renderCards()
+
+function filtraProdutos() {
+
+    const buttons = document.querySelectorAll('[data-btn]');
+
+    buttons.forEach(element => {
+        element.addEventListener('click', (e) => {
+            const value = e.target.dataset.btn;
+            if(value !== "") {
+                listUl.innerHTML = ""
+                const newArray = data.filter(({tag}) => {
+                    return tag[0] === value
+                }).forEach(element => createCard(element))
+                return newArray
+            }else {
+                listUl.innerHTML = ""
+                renderCards()
+            }
+        })
+    })
+}
+
+function pesquisarProduto() {
+
+    const search = document.querySelector('#searchButton');
+    const input = document.querySelector('#input')
+    
+    search.addEventListener('click', (e) => {
+        e.preventDefault();
+        listUl.innerHTML = ""
+        const produto = input.value
+        const newArray = data.filter(element => {
+            return element.nameItem.includes(produto) || element.description.includes(produto)
+            
+        })
+        newArray.forEach(element => createCard(element))
+        return newArray
+    })
+    input.addEventListener('change', (e) => {
+        e.preventDefault()
+        console.log("mudando")
+        listUl.innerHTML = ""
+        const produto = input.value;
+        const newArray = data.filter(element => {
+            return element.nameItem.includes(produto) || element.description.includes(produto)
+        })
+        newArray.forEach(element => createCard(element))
+    })
+}
+
+pesquisarProduto()
+
+filtraProdutos()
 
 // Processo de por os itens no carrinho
 
@@ -176,6 +207,8 @@ for (let z = 0; z < botoesAdd.length; z++) {
         selecionados.push(newItem);
         itensNaLista.push(data[z])
         loadList();
+        filtraProdutos();
+        pesquisarProduto();
     })
     
 }
@@ -184,16 +217,10 @@ function carroVazio(){
 
     listaSelecionados.classList.replace('listaComItens','listaSelecionados')
 
-    let element = document.createElement('h3')
-    element.innerText = 'Carrinho Vazio';
-    element.setAttribute('id', 'carrinhoVazio')
-
-    let small = document.createElement('small');
-    small.innerText = 'Adicione itens';
-    small.setAttribute('id', 'small');
-
-    listaSelecionados.appendChild(element)
-    listaSelecionados.appendChild(small)
+    listaSelecionados.insertAdjacentHTML('beforeend', `
+        <h3 id="carrinhoVazio">Carrinho Vazio</h3>
+        <small id="small">Adicione Itens</small>
+    `)
 }
 
 function carroComItens(){
@@ -202,3 +229,7 @@ function carroComItens(){
     let carrinho = document.querySelector('.carrinho')
     carrinho.appendChild(divTotalPago)
 }
+
+
+
+

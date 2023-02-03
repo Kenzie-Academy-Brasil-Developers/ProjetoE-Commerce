@@ -9,7 +9,7 @@ const data = [
       "Adicione um pouco de energia ao seu guarda-roupa de inverno com esta jaqueta vibrante...",
     value: 100,
     addCart: "Adicionar ao carrinho",
-    tag: ["Camisetas"],
+    tag: ["Jaquetas"],
   },
   {
     id: 2,
@@ -59,6 +59,6 @@ const data = [
       "Proteja-se dos elementos com esta jaqueta embalável Champion. Esta jaqueta de poliést...",
     value: 100,
     addCart: "Adicionar ao carrinho",
-    tag: ["Camisetas"],
+    tag: ["Jaquetas"],
   },
 ];
