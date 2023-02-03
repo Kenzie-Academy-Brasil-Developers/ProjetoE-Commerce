@@ -6,6 +6,7 @@ body {
   background-color: rgb(255, 255, 255);
   color: rgb(0, 0, 0);
   font-family: "Inter", sans-serif;
+  font-weight: 500;
 }
 
 header {
@@ -46,6 +47,10 @@ header .container .itensNav {
 .itensNav button {
   border-bottom: 2px rgb(255, 255, 255) solid;
   padding: 4px;
+  font-weight: 500;
+}
+.itensNav button:focus {
+  border-bottom: #000 solid 2px;
 }
 
 .itensNav button:hover {

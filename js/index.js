@@ -12,7 +12,7 @@ const listUl = document.querySelector("#listaPrincipal")
 function createCard ({id, img, tag, nameItem, description, value}) {
     const listUl = document.querySelector("#listaPrincipal")
 
-    listUl.insertAdjacentHTML("afterbegin", `
+    listUl.insertAdjacentHTML("beforeend", `
     <li class="card" id="${id}">
         <img src="${img}" alt="${nameItem}">
         <p class="type">${tag[0]}</p>
@@ -65,7 +65,6 @@ function pesquisarProduto() {
     })
     input.addEventListener('change', (e) => {
         e.preventDefault()
-        console.log("mudando")
         listUl.innerHTML = ""
         const produto = input.value;
         const newArray = data.filter(element => {
@@ -181,7 +180,6 @@ for (let z = 0; z < botoesAdd.length; z++) {
 
         contaFinal += data[z].value
         spanPreco.innerText = `R$${contaFinal},00`
-
         
         let newItem = document.createElement("li");
         
