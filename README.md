@@ -47,6 +47,7 @@
 <h2 id="addToCart" style="letter-spacing: 1px;"><strong>Add to Cart</strong></h2>
 <img src="./img/images/adicionar.png" alt="feature Image" style="max-height: 700px; max-width: 550px;border-radius: 8px; margin-right: 16px;">
 <img src="./img/images/Carrinho.png" alt="feature Image" style="max-height: 350px; max-width: 550px;border-radius: 8px;">
+![logo of the project][https://raw.githubusercontent.com/Kenzie-Academy-Brasil-Developers/ProjetoE-Commerce/master/img/Images/Carrinho.png?token=GHSAT0AAAAAAB5LLTAH4M2YUTS5KC62IHLWY644IOQ]
 
 <br>
 <p style="font-size: 1.2rem;">
